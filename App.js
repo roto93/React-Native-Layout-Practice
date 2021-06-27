@@ -1,14 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import AppLoading from 'expo-app-loading';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import StartScreen from './src/Screens/StartScreen/StartScreen';
-import MainScreen from './src/Screens/MainScreen/MainScreen';
+import GroupScreen from './src/Screens/GroupScreen/GroupScreen';
 import { useFonts, Roboto_400Regular, Roboto_300Light, Roboto_500Medium } from '@expo-google-fonts/roboto';
+import * as Tabs from './src/components/TabBarComponents';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator()
 
 function App() {
   const [fontLoaded] = useFonts({
@@ -21,11 +21,33 @@ function App() {
   else if (!start) return <StartScreen setIsStart={setStart} />
   else return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{ headerLeft: () => <TouchableOpacity onPress={() => { setStart(false) }} style={{ width: 50, height: 50, backgroundColor: 'gold' }}></TouchableOpacity> }}
+      <Tab.Navigator
+        tabBarOptions={{
+          showLabel: false,
+          style: { position: 'absolute', bottom: 0, borderWidth: 0, height: 56, borderTopLeftRadius: 28, borderTopRightRadius: 28, elevation: 0, }
+        }}
       >
-        <Stack.Screen name={'Main'} component={MainScreen} />
-      </Stack.Navigator>
+        <Tab.Screen name={'Group'} component={GroupScreen} options={{
+          tabBarButton: props => <TouchableOpacity {...props} />,
+          tabBarIcon: Tabs.GroupTab,
+        }} />
+        <Tab.Screen name={'Main2'} component={GroupScreen} options={{
+          tabBarButton: props => <TouchableOpacity {...props} />,
+          tabBarIcon: Tabs.PeerTab
+        }} />
+        <Tab.Screen name={'Main3'} component={GroupScreen} options={{
+          tabBarButton: props => <TouchableOpacity {...props} />,
+          tabBarIcon: Tabs.MainTab
+        }} />
+        <Tab.Screen name={'Main4'} component={GroupScreen} options={{
+          tabBarButton: props => <TouchableOpacity {...props} />,
+          tabBarIcon: Tabs.ChatTab
+        }} />
+        <Tab.Screen name={'Main5'} component={GroupScreen} options={{
+          tabBarButton: props => <TouchableOpacity {...props} />,
+          tabBarIcon: Tabs.ProfileTab
+        }} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
