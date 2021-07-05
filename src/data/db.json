@@ -1,0 +1,44 @@
+{
+    "yourGroups": [
+      { 
+        "id":"0",
+        "groupName":"Meditation",
+        "members":988,
+        "posts":124
+       },{ 
+        "id":"1",
+        "groupName":"Anxiety Support",
+        "members":50,
+        "posts":18
+       },{ 
+        "id":"2",
+        "groupName":"How to Relax",
+        "members":314,
+        "posts":159
+       }
+    ],
+    "posts": [
+      {
+        "id":"0",
+        "groupName":"How to Relax",
+        "time":"2021-07-05T17:41:45.940Z",
+        "author":null,
+        "content":"Thins are good. Today I wnat to visit a new place to meditate. Does anyone else meditate outside?"
+      },
+      {
+        "id":"1",
+        "groupName":"Meditation",
+        "time":"2021-07-05T14:45:45.000Z",
+        "author":"David",
+        "content":"To tune in to meditation, you can take a bath and drink a mug of warm tea. Try not to eat 2-3 hours before bed. Limit the use of gadgets for a cleaner mind before practice. While performing meditation, it is not necessary to sit in the lotus position - it is enough to find a comfortable position for yourself (just do not meditate lying down, so as not to fall asleep ahead of time)."
+      },
+      {
+        "id":"2",
+        "groupName":"Meditation",
+        "time":"2021-07-05T10:22:45.000Z",
+        "author":null,
+        "content":"At Joyn people find a support network that they may not have in real life. This network provides safety and allows to learn all the aspects of mental health from each other."
+      }
+    ],
+    "profile": { "name": "typicode" }
+  }
