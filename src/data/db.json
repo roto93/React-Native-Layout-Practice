@@ -3,16 +3,19 @@
       { 
         "id":"0",
         "groupName":"Meditation",
+        "thumb":"meditation.jpg",
         "members":988,
         "posts":124
        },{ 
         "id":"1",
         "groupName":"Anxiety Support",
+        "thumb":"meditation.jpg",
         "members":50,
         "posts":18
        },{ 
         "id":"2",
         "groupName":"How to Relax",
+        "thumb":,
         "members":314,
         "posts":159
        }
@@ -23,7 +26,7 @@
         "groupName":"How to Relax",
         "time":"2021-07-05T17:41:45.940Z",
         "author":null,
-        "content":"Thins are good. Today I wnat to visit a new place to meditate. Does anyone else meditate outside?"
+        "content":"Things are good. Today I wnat to visit a new place to meditate. Does anyone else meditate outside?"
       },
       {
         "id":"1",

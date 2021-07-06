@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons'
 
 const RowView = ({ children, style }) => (
     <View style={{ flexDirection: 'row', alignItems: 'center', ...style }}>
@@ -32,25 +33,45 @@ const YourGroupsPage = () => {
     }
 
     const GroupCard = ({ group }) => {
-        let { id, groupName, members, posts } = group
+        const { id, groupName, thumb, members, posts } = group
         return (
             <View style={styles.groupCard}>
-                <Text>{groupName}</Text>
-                <Text>{members}</Text>
-                <Text>{posts}</Text>
+                <RowView>
+                    <Image source={require('../../../images/meditation.jpg')} style={{ width: 40, height: 40, borderRadius: 20, marginRight: 8 }} />
+                    <View>
+                        <Text style={styles.groupCard__groupName}>{groupName}</Text>
+                        <RowView>
+                            <Ionicons name="people-outline" size={14} color={'#999'} />
+                            <Text style={styles.groupCard__members}>{members}</Text>
+                            <Text style={styles.groupCard__posts}>({posts})</Text>
+                        </RowView>
+                    </View>
+
+                </RowView>
             </View>
         )
     }
     const Post = ({ post }) => {
         const { id, groupName, time, author, content } = post
-        console.log(groupName)
+        console.log(time)
+        let postTime = new Date(time)
+        console.log(postTime)
+        let postLife = Date.now() - postTime
+        postLife = Math.floor(postLife / 60 / 60 / 1000)
         return (
             <View style={styles.post}>
-                <RowView style={{ justifyContent: 'space-between', width: '100%' }}>
-                    <Text style={styles.post__groupName}>{groupName}</Text>
-                    <Text style={styles.post__time}>{time}</Text>
+                <RowView style={styles.post__header}>
+                    <RowView>
+                        <Image source={require('../../../images/meditation.jpg')} style={{ width: 40, height: 40, borderRadius: 20, marginRight: 8 }} />
+                        <Text style={styles.post__groupName}>{groupName}</Text>
+                    </RowView>
+                    <Text style={styles.post__time}>{postLife} hours ago</Text>
                 </RowView>
-                <Text style={styles.post__author}>{author}</Text>
+                {author &&
+                    <Text style={styles.post__author}>Author:
+                        <Text style={{ color: '#000' }}>  {author}</Text>
+                    </Text>
+                }
                 <Text style={styles.post__content}>{content}</Text>
             </View>
         )
@@ -91,7 +112,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F1F7FA',
     },
     section: {
-        borderWidth: 1,
+        // borderWidth: 1,
         width: '100%',
         marginTop: 16
     },
@@ -104,11 +125,11 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     horizontalScrollView: {
-        borderWidth: 1,
+        // borderWidth: 1,
         height: 50,
     },
     horizontalScrollViewContainer: {
-        borderWidth: 1,
+        // borderWidth: 1,
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -118,30 +139,56 @@ const styles = StyleSheet.create({
     },
     groupCard: {
         // borderWidth: 1,
-        width: 200,
-        height: 72,
+        minWidth: 160,
         marginRight: 8,
         backgroundColor: '#fff',
         borderRadius: 8,
-        padding: 8
+        padding: 8,
+        elevation: 1,
+    },
+    groupCard__groupName: {
+        fontSize: 14,
+        fontFamily: 'Roboto_500Medium',
+        color: '#000',
+    },
+    groupCard__members: {
+        fontSize: 14,
+        fontFamily: 'Roboto_400Regular',
+        color: '#999',
+        marginHorizontal: 4,
+    },
+    groupCard__posts: {
+        fontSize: 14,
+        fontFamily: 'Roboto_400Regular',
+        color: 'skyblue',
     },
     post: {
         width: '100%',
         paddingHorizontal: 20,
         paddingVertical: 12,
+        borderColor: '#ccc',
         borderBottomWidth: 1,
     },
+    post__header: {
+        width: '100%',
+        justifyContent: 'space-between',
+        marginBottom: 8,
+    },
     post__groupName: {
-        fontSize: 16,
-        fontFamily: 'Roboto_400Regular',
+        fontSize: 18,
+        fontFamily: 'Roboto_500Medium',
+        color: '#000',
     },
     post__time: {
-        fontSize: 16,
+        fontSize: 12,
         fontFamily: 'Roboto_400Regular',
+        color: '#999',
     },
     post__author: {
-        fontSize: 16,
+        fontSize: 12,
         fontFamily: 'Roboto_400Regular',
+        color: '#999',
+        marginBottom: 4,
     },
     post__content: {
         fontSize: 16,
