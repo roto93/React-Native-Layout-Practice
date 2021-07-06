@@ -3,19 +3,16 @@
       { 
         "id":"0",
         "groupName":"Meditation",
-        "thumb":"meditation.jpg",
         "members":988,
         "posts":124
        },{ 
         "id":"1",
         "groupName":"Anxiety Support",
-        "thumb":"meditation.jpg",
         "members":50,
         "posts":18
        },{ 
         "id":"2",
         "groupName":"How to Relax",
-        "thumb":,
         "members":314,
         "posts":159
        }
