@@ -53,9 +53,7 @@ const YourGroupsPage = () => {
     }
     const Post = ({ post }) => {
         const { id, groupName, time, author, content } = post
-        console.log(time)
         let postTime = new Date(time)
-        console.log(postTime)
         let postLife = Date.now() - postTime
         postLife = Math.floor(postLife / 60 / 60 / 1000)
         return (

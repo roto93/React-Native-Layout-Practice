@@ -4,17 +4,23 @@
         "id":"0",
         "groupName":"Meditation",
         "members":988,
-        "posts":124
+        "posts":124,
+        "isPrivate":"true",
+        "description":"Let's help each other on the journey to meditation by sharing best practices, our favorite apps, meditation tracks, speak to what's working and not, and more!"
        },{ 
         "id":"1",
         "groupName":"Anxiety Support",
         "members":50,
-        "posts":18
+        "posts":18,
+        "isPrivate":"false",
+        "description":"In this community, we know being a black man and dealing with mental health is challenging. We're here to support each other and share learnings."
        },{ 
         "id":"2",
         "groupName":"How to Relax",
         "members":314,
-        "posts":159
+        "posts":159,
+        "isPrivate":"false",
+        "description":""
        }
     ],
     "posts": [
